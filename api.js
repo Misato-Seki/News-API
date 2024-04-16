@@ -80,9 +80,10 @@ async function getNews(){
   // get APIkey and keyword from user input
   const apiKey = document.getElementById("apiKey2").value;
   const keyword = document.getElementById("keyword").value.toLowerCase();
+  const sortBy = document.getElementById("sortBy").value;
 
   try{
-    const response = await fetch(`https://newsapi.org/v2/everything?q=${keyword}&sortBy=popularity&apiKey=${apiKey}`);
+    const response = await fetch(`https://newsapi.org/v2/everything?q=${keyword}&sortBy=${sortBy}&apiKey=${apiKey}`);
 
     if(!response.ok){
       throw new Error(`HTTP error! Status: ${response.status}`);

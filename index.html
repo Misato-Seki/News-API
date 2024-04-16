@@ -54,6 +54,14 @@
                         <input type="text" class="form-control" id="apiKey2" placeholder="Enter APIkey">
                         <label for="keyword" class="form-label">KeyWord:</label>
                         <input type="text" class="form-control" id="keyword" placeholder="Enter keyword">
+                    </select>
+                    <label for="category" class="form-label">Sort by:</label>              
+                    <select class="form-select" aria-label="Default select example" id="sortBy">
+                        <option selected>Select sort method</option>
+                        <option value="relevancy">relevancy</option>
+                        <option value="popularity">popularity</option>
+                        <option value="publishedAt">newest first</option>
+                    </select>
                         <br>
                         <button type="button" class="btn btn-dark" onclick="getNews()">Get News</button>        
                     </div>
