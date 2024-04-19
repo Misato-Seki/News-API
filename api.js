@@ -19,15 +19,33 @@ function formatDate(datestring){
   return `${day}-${month}-${year}`;
 }
 
+
 // define getHeadline() functions
 async function getHeadline(){
-  // get APIkey, country code and category from user input
+  // get APIkey and parameters from user input
   const apiKey = document.getElementById("apiKey1").value;
   const countryCode = document.getElementById("contry_code").value;
   const category = document.getElementById("category").value;
+  const keyword = document.getElementById("keyword1").value.toLowerCase();
+  
+  // Define URL to fetch
+  var url = `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}`;
+  
+  // Define addParam() function
+  function addParam(paramName, paramValue){
+    if(paramValue !== ""){
+      url += `&${paramName}=${paramValue}`;
+    }
+  }
+
+  // Add each parameters to url
+  addParam("country", countryCode);
+  addParam("category", category);
+  addParam("keyword", keyword);
+
 
   try{
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=${countryCode}&category=${category}&apiKey=${apiKey}`);
+    const response = await fetch(url);
 
     if(!response.ok){
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -65,7 +83,7 @@ async function getHeadline(){
       viewContainer.innerHTML = view;
     }
     else{
-      document.getElementById("container").innerHTML = `<p>No articles found for ${keyword}</p>`;
+      document.getElementById("container").innerHTML = `<p>No articles found</p>`;
     }
   }
   catch(error){
@@ -77,13 +95,31 @@ async function getHeadline(){
 
 // define getNews() function
 async function getNews(){
-  // get APIkey, keyword and sort method from user input
+  // get APIkey and parameters from user input
   const apiKey = document.getElementById("apiKey2").value;
-  const keyword = document.getElementById("keyword").value.toLowerCase();
+  const keyword = document.getElementById("keyword2").value.toLowerCase();
   const sortBy = document.getElementById("sortBy").value;
+  const from = document.getElementById("from").value;
+  const to = document.getElementById("to").value;
+
+  // Define URL to fetch
+  var url = `https://newsapi.org/v2/everything?apiKey=${apiKey}`;
+
+  // Define addParam() function
+  function addParam(paramName, paramValue){
+    if(paramValue !== ""){
+      url += `&${paramName}=${paramValue}`;
+    }
+  }
+
+  // Add each parameters to url
+  addParam("q", keyword);
+  addParam("sortBy", sortBy);
+  addParam("from", from);
+  addParam("to", to);
 
   try{
-    const response = await fetch(`https://newsapi.org/v2/everything?q=${keyword}&sortBy=${sortBy}&apiKey=${apiKey}`);
+    const response = await fetch(url);
 
     if(!response.ok){
       throw new Error(`HTTP error! Status: ${response.status}`);
