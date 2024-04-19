@@ -6,6 +6,7 @@ News-API is a program that retrieves news from the News API.
 
 ![](2024-04-19-08-21-22.png)
 ### For *Free* Account Holders of NewsAPI
+Free account holders have CORS enabled for localhost which means requests can be made only while testing from localhost.
 1. Click "Code" above the list of files.
 2. Click  "Download ZIP".
 3. Open your preferred web browser. 
@@ -13,11 +14,11 @@ News-API is a program that retrieves news from the News API.
 5. Navigate to "index.html" file and then click “Open” (or equivalent). 
 
 ### For *Paid* Account Holders of NewsAPI
+Paid account holders have CORS enabled for all origins which means requests can be made from all origins.
 1. https://misato-seki.github.io/News-API/
 
 ## Usage
-
-![](2024-04-19-08-26-41.png)
+![](2024-04-19-13-34-01.png)
 1. News-API offers 2 options:
 2. "Get breaking news headlines": Retrieve all the current **news related to a chosen country and category** from the API.
 3. "Search for news articles": Find all the **news related to a user input ketword** from the API.
