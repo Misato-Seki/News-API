@@ -1,4 +1,4 @@
-// define formatDate() function
+// Define formatDate() function
 function formatDate(datestring){
   // datestring is null
   if(!datestring){
@@ -21,7 +21,7 @@ function formatDate(datestring){
 
 // define getHeadline() functions
 async function getHeadline(){
-  // get APIkey and country code from user input
+  // get APIkey, country code and category from user input
   const apiKey = document.getElementById("apiKey1").value;
   const countryCode = document.getElementById("contry_code").value;
   const category = document.getElementById("category").value;
@@ -77,7 +77,7 @@ async function getHeadline(){
 
 // define getNews() function
 async function getNews(){
-  // get APIkey and keyword from user input
+  // get APIkey, keyword and sort method from user input
   const apiKey = document.getElementById("apiKey2").value;
   const keyword = document.getElementById("keyword").value.toLowerCase();
   const sortBy = document.getElementById("sortBy").value;
